@@ -993,6 +993,16 @@ h1 {
   color: var(--pink);
 }
 
+.cert-link {
+  color: var(--muted);
+  font-size: 12px;
+  transition: color 200ms ease;
+}
+
+.cert-card:hover .cert-link {
+  color: var(--cyan);
+}
+
 .edu-grid {
   margin-top: 24px;
   display: grid;
