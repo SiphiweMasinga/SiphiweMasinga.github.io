@@ -82,7 +82,7 @@
     spinner.add(satellite);
     pivot.add(ring, spinner);
     group.add(pivot);
-    return { spinner, speed };
+    return { spinner, speed, materials: [ring.material, satellite.material] };
   });
 
   // Star field, coloured across the brand gradient.
@@ -90,7 +90,9 @@
   const positions = new Float32Array(starCount * 3);
   const colors = new Float32Array(starCount * 3);
   const palette = [cyan, violet, pink, new THREE.Color("#ffffff")];
+  const starTint = new Uint8Array(starCount);
   for (let i = 0; i < starCount; i += 1) {
+    starTint[i] = i % palette.length;
     const radius = 6 + Math.random() * 18;
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.acos(2 * Math.random() - 1);
@@ -114,6 +116,39 @@
     }),
   );
   scene.add(stars);
+
+  // Colours for each theme: light mode uses deeper tones so the scene reads on a pale page.
+  const themes = {
+    dark: {
+      core: "#8b5cf6", emissive: "#2a1660", line: "#5ce1e6", lineOpacity: 0.55,
+      rings: ["#8b5cf6", "#f472b6"], stars: ["#5ce1e6", "#8b5cf6", "#f472b6", "#ffffff"],
+      starOpacity: 0.8, light: 2.2,
+    },
+    light: {
+      core: "#7c3aed", emissive: "#3b1d8f", line: "#0e7490", lineOpacity: 0.65,
+      rings: ["#7c3aed", "#db2777"], stars: ["#0e7490", "#7c3aed", "#db2777", "#475569"],
+      starOpacity: 0.5, light: 1.6,
+    },
+  };
+
+  function applyTheme(name) {
+    const theme = themes[name] ?? themes.dark;
+    core.material.color.set(theme.core);
+    core.material.emissive.set(theme.emissive);
+    shell.material.color.set(theme.line);
+    shell.material.opacity = theme.lineOpacity;
+    nodes.material.color.set(theme.line);
+    rings.forEach(({ materials }, index) => materials.forEach((m) => m.color.set(theme.rings[index])));
+    const starColors = theme.stars.map((hex) => new THREE.Color(hex));
+    for (let i = 0; i < starCount; i += 1) {
+      const color = starColors[starTint[i]];
+      colors.set([color.r, color.g, color.b], i * 3);
+    }
+    starGeometry.attributes.color.needsUpdate = true;
+    stars.material.opacity = theme.starOpacity;
+    lightA.intensity = theme.light;
+    render();
+  }
 
   // Layout: the core sits to the right of the text on wide screens and behind it on phones.
   function resize() {
@@ -185,6 +220,8 @@
 
   window.addEventListener("resize", resize);
   resize();
+  applyTheme(document.documentElement.dataset.theme);
+  window.addEventListener("themechange", (event) => applyTheme(event.detail.theme));
 
   if (prefersReducedMotion) {
     group.rotation.set(0.3, 0.6, 0);

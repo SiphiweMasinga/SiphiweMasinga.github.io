@@ -1,6 +1,51 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+// ---------- Light / dark theme ----------
+
+const root = document.documentElement;
+const themeToggle = document.querySelector(".theme-toggle");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(theme, save) {
+  root.dataset.theme = theme;
+  themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+  themeColorMeta.content = theme === "dark" ? "#07080d" : "#f5f6fa";
+  if (save) {
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {}
+  }
+  // The 3D scenes listen for this and recolour themselves.
+  window.dispatchEvent(new CustomEvent("themechange", { detail: { theme } }));
+}
+
+applyTheme(root.dataset.theme === "light" ? "light" : "dark", false);
+
+themeToggle.addEventListener("click", () => {
+  applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+});
+
+// Follow the system setting until the visitor picks a theme themselves.
+window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", (event) => {
+  let saved = null;
+  try {
+    saved = localStorage.getItem("theme");
+  } catch {}
+  if (!saved) applyTheme(event.matches ? "light" : "dark", false);
+});
+
+// ---------- Scroll progress ----------
+
+const progressBar = document.querySelector(".scroll-progress");
+const updateProgress = () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+};
+updateProgress();
+window.addEventListener("scroll", updateProgress, { passive: true });
+window.addEventListener("resize", updateProgress);
+
 // ---------- Navigation ----------
 
 const header = document.querySelector(".site-header");

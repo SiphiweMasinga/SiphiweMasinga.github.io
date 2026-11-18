@@ -42,11 +42,9 @@
   scene.add(globe);
 
   // A faint wireframe shell gives the sphere its shape between the logos.
+  const shellMaterial = new THREE.LineBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: 0.14 });
   globe.add(
-    new THREE.LineSegments(
-      new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.45, 1)),
-      new THREE.LineBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: 0.14 }),
-    ),
+    new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.45, 1)), shellMaterial),
   );
 
   const radius = 2.65;
@@ -88,7 +86,7 @@
     geometry.computeBoundingBox();
     const offset = geometry.boundingBox.getCenter(new THREE.Vector3()).negate();
     const mesh = new THREE.Mesh(finish(geometry, offset), material(new THREE.Color(logo.color)));
-    mesh.userData = { name: logo.name, phase: index * 0.7 };
+    mesh.userData = { name: logo.name, phase: index * 0.7, logo };
 
     // Lettering cut out of a logo (the "JS" in JavaScript, the "C#" in C#) is filled with
     // raised letters in a contrasting colour so it stays readable in 3D.
@@ -220,9 +218,25 @@
     frame = requestAnimationFrame(animate);
   }
 
+  // Recolour for light/dark mode: a stronger wireframe on light pages, and logos such as
+  // GitHub's (white) switch to their dark version.
+  function applyTheme(theme) {
+    const light = theme === "light";
+    shellMaterial.opacity = light ? 0.28 : 0.14;
+    meshes.forEach((mesh) => {
+      const { logo } = mesh.userData;
+      const color = new THREE.Color(light && logo.lightColor ? logo.lightColor : logo.color);
+      mesh.material.color.copy(color);
+      mesh.material.emissive.copy(color).multiplyScalar(light ? 0.08 : 0.18);
+    });
+    render();
+  }
+
   window.addEventListener("resize", resize);
   globe.rotation.set(0.25, 0.4, 0);
   resize();
+  applyTheme(document.documentElement.dataset.theme);
+  window.addEventListener("themechange", (event) => applyTheme(event.detail.theme));
 
   if (prefersReducedMotion) return;
 
