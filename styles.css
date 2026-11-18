@@ -745,6 +745,58 @@ h1 {
   min-height: 220px;
 }
 
+.subsection-title {
+  margin: 72px 0 12px;
+  font-size: clamp(26px, 3vw, 34px);
+}
+
+.subsection-intro {
+  margin: 0 0 28px;
+  max-width: 640px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.team-card .project-body {
+  height: 100%;
+}
+
+.team-owner {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.my-role {
+  padding: 14px 16px;
+  border: 1px solid rgba(92, 225, 230, 0.25);
+  border-radius: 14px;
+  background: rgba(92, 225, 230, 0.06);
+}
+
+.my-role-title {
+  margin-bottom: 6px;
+  color: var(--cyan);
+  font-size: 12px;
+}
+
+.my-role ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+.my-role li + li {
+  margin-top: 4px;
+}
+
+.my-role li::marker {
+  color: var(--cyan);
+}
+
 .project-shot {
   position: relative;
   display: block;
@@ -1216,7 +1268,8 @@ h1 {
     aspect-ratio: 16 / 10;
   }
 
-  .cert-grid {
+  .cert-grid,
+  .team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1237,6 +1290,7 @@ h1 {
   }
 
   .project-grid,
+  .team-grid,
   .cert-grid,
   .edu-grid {
     grid-template-columns: 1fr;
