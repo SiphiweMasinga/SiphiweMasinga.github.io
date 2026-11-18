@@ -148,7 +148,8 @@ if (sphere) {
   }
 
   function spin() {
-    if (!visible) return;
+    // skills3d.js replaces this text sphere with 3D logos when WebGL is available.
+    if (!visible || sphere.classList.contains("is-3d")) return;
     angleX += velocityX;
     angleY += velocityY;
     draw();
