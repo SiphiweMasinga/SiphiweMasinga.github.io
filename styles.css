@@ -733,10 +733,16 @@ h1 {
   flex-direction: column;
 }
 
-.project-featured {
+.project-featured,
+.project-wide {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
+}
+
+.project-wide .project-art {
+  height: auto;
+  min-height: 220px;
 }
 
 .project-shot {
@@ -839,42 +845,6 @@ h1 {
 
 .art-security span:not(:first-child) {
   color: var(--pink);
-}
-
-.art-research {
-  background:
-    radial-gradient(circle at 30% 70%, rgba(92, 225, 230, 0.18), transparent 50%),
-    #0a0c12;
-}
-
-.gear {
-  position: absolute;
-  border: 10px dashed rgba(139, 92, 246, 0.6);
-  border-radius: 50%;
-  animation: spin 14s linear infinite;
-}
-
-.gear-one {
-  top: 30px;
-  left: calc(50% - 90px);
-  width: 120px;
-  height: 120px;
-}
-
-.gear-two {
-  top: 90px;
-  left: calc(50% + 14px);
-  width: 80px;
-  height: 80px;
-  border-color: rgba(92, 225, 230, 0.6);
-  animation-direction: reverse;
-  animation-duration: 9s;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* ---------- Skills ---------- */
@@ -1233,7 +1203,8 @@ h1 {
 
   .about-grid,
   .skills-grid,
-  .project-featured {
+  .project-featured,
+  .project-wide {
     grid-template-columns: 1fr;
   }
 
