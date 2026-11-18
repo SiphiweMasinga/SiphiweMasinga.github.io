@@ -516,6 +516,18 @@
       </section>
     </main>
 
+    <!-- Certificate viewer: certificates open here when their card is clicked. -->
+    <dialog class="cert-viewer" aria-labelledby="cert-viewer-title">
+      <div class="cert-viewer-bar">
+        <h2 class="cert-viewer-title" id="cert-viewer-title">Certificate</h2>
+        <div class="cert-viewer-actions">
+          <a class="cert-viewer-open mono" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+          <button class="cert-viewer-close" type="button" aria-label="Close certificate" autofocus>×</button>
+        </div>
+      </div>
+      <div class="cert-viewer-body"></div>
+    </dialog>
+
     <footer class="site-footer">
       <div class="container footer-inner">
         <span class="mono">© <span id="year"></span> Siphiwe Masinga</span>

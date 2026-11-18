@@ -223,6 +223,52 @@ if (sphere) {
   }
 }
 
+// ---------- Certificate viewer ----------
+
+const certViewer = document.querySelector(".cert-viewer");
+if (certViewer && typeof certViewer.showModal === "function") {
+  const viewerTitle = certViewer.querySelector(".cert-viewer-title");
+  const viewerBody = certViewer.querySelector(".cert-viewer-body");
+  const viewerOpen = certViewer.querySelector(".cert-viewer-open");
+  const narrowScreen = window.matchMedia("(max-width: 700px)");
+
+  document.querySelectorAll(".cert-verified").forEach((card) => {
+    card.addEventListener("click", (event) => {
+      const url = card.getAttribute("href");
+      const isPdf = /\.pdf$/i.test(url);
+      // Phone browsers can't show PDFs inside a page, so let those open in a new tab.
+      if (isPdf && narrowScreen.matches) return;
+
+      event.preventDefault();
+      const title = card.querySelector("h3").textContent.trim();
+      viewerTitle.textContent = title;
+      viewerOpen.href = url;
+      viewerBody.replaceChildren();
+
+      if (isPdf) {
+        const frame = document.createElement("iframe");
+        frame.src = `${url}#view=FitH`;
+        frame.title = title;
+        viewerBody.append(frame);
+      } else {
+        const image = document.createElement("img");
+        image.src = url;
+        image.alt = `${title} certificate`;
+        viewerBody.append(image);
+      }
+      certViewer.showModal();
+    });
+  });
+
+  const closeViewer = () => certViewer.close();
+  certViewer.querySelector(".cert-viewer-close").addEventListener("click", closeViewer);
+  // Clicking the dimmed backdrop (outside the dialog box) closes it too.
+  certViewer.addEventListener("click", (event) => {
+    if (event.target === certViewer) closeViewer();
+  });
+  certViewer.addEventListener("close", () => viewerBody.replaceChildren());
+}
+
 // ---------- Reveal on scroll ----------
 
 if (!prefersReducedMotion) {
