@@ -54,35 +54,54 @@
   const meshes = [];
 
   logos.forEach((logo, index) => {
+    // Logos with cut-out lettering (e.g. JavaScript, C#) need the even-odd rule for their holes.
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="${logo.path}"/></svg>`;
     const shapes = loader.parse(svg).paths.flatMap((path) => THREE.SVGLoader.createShapes(path));
     if (!shapes.length) return;
 
-    const geometry = new THREE.ExtrudeGeometry(shapes, {
-      depth: 3,
-      bevelEnabled: true,
-      bevelThickness: 0.5,
-      bevelSize: 0.3,
-      bevelSegments: 2,
-      curveSegments: 10,
-    });
-    geometry.center();
+    const extrude = (shapeList, depth) =>
+      new THREE.ExtrudeGeometry(shapeList, {
+        depth,
+        bevelEnabled: true,
+        bevelThickness: 0.5,
+        bevelSize: 0.3,
+        bevelSegments: 2,
+        curveSegments: 10,
+      });
     // SVG's y axis points down, so flip it; 24 SVG units become about 1 scene unit.
-    geometry.scale(0.041, -0.041, 0.041);
-    geometry.computeVertexNormals();
-
-    const color = new THREE.Color(logo.color);
-    const mesh = new THREE.Mesh(
-      geometry,
+    const finish = (geometry, offset) => {
+      geometry.translate(offset.x, offset.y, offset.z);
+      geometry.scale(0.041, -0.041, 0.041);
+      geometry.computeVertexNormals();
+      return geometry;
+    };
+    const material = (color) =>
       new THREE.MeshStandardMaterial({
         color,
         emissive: color.clone().multiplyScalar(0.18),
         metalness: 0.3,
         roughness: 0.32,
         side: THREE.DoubleSide,
-      }),
-    );
+      });
+
+    const geometry = extrude(shapes, 3);
+    geometry.computeBoundingBox();
+    const offset = geometry.boundingBox.getCenter(new THREE.Vector3()).negate();
+    const mesh = new THREE.Mesh(finish(geometry, offset), material(new THREE.Color(logo.color)));
     mesh.userData = { name: logo.name, phase: index * 0.7 };
+
+    // Lettering cut out of a logo (the "JS" in JavaScript, the "C#" in C#) is filled with
+    // raised letters in a contrasting colour so it stays readable in 3D.
+    if (logo.inset) {
+      const letters = shapes.flatMap((shape) =>
+        shape.holes.map((hole) => new THREE.Shape(hole.getPoints())),
+      );
+      if (letters.length) {
+        const lettering = extrude(letters, 3.6);
+        offset.z += 0.3;
+        mesh.add(new THREE.Mesh(finish(lettering, offset), material(new THREE.Color(logo.inset))));
+      }
+    }
 
     // Spread logos evenly (Fibonacci lattice) and turn each one to face outwards.
     const y = 1 - (index / (logos.length - 1)) * 2;
@@ -156,8 +175,9 @@
     pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
     pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
-    const hit = raycaster.intersectObjects(meshes)[0];
-    setHovered(hit ? hit.object : null, event);
+    const hit = raycaster.intersectObjects(meshes, true)[0];
+    const logoMesh = hit && (meshes.includes(hit.object) ? hit.object : hit.object.parent);
+    setHovered(logoMesh || null, event);
     if (prefersReducedMotion) render();
   });
 
