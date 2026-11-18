@@ -3,23 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Siphiwe Masinga — CV</title>
-    <meta name="description" content="CV of Siphiwe Masinga — BICT student, cybersecurity and web development." />
+    <title>Siphiwe Masinga - CV</title>
+    <meta name="author" content="Siphiwe Masinga" />
+    <meta
+      name="description"
+      content="CV of Siphiwe Masinga - final-year BICT student, cybersecurity and web developer, Mbombela, South Africa."
+    />
     <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!--
+      ATS-friendly layout: a single column of real text, standard section headings, a standard
+      font, no tables, icons or images, and contact details in the body rather than a header.
+    -->
     <style>
       @page {
         size: A4;
-        margin: 14mm 15mm;
-      }
-
-      :root {
-        --ink: #14161f;
-        --muted: #4b5163;
-        --accent: #6d28d9;
-        --line: #d9dce5;
+        margin: 13mm 15mm;
       }
 
       * {
@@ -28,72 +26,63 @@
 
       body {
         margin: 0;
-        background: #eef0f5;
-        color: var(--ink);
-        font: 10pt/1.45 "Inter", Arial, sans-serif;
+        background: #eceef2;
+        color: #111;
+        font: 10pt/1.36 Arial, Helvetica, sans-serif;
       }
 
       .page {
         max-width: 210mm;
-        margin: 24px auto;
-        padding: 16mm 15mm;
+        margin: 20px auto 40px;
+        padding: 15mm 16mm;
         background: #fff;
-        box-shadow: 0 10px 40px rgba(20, 22, 31, 0.12);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
       }
 
       .toolbar {
         max-width: 210mm;
-        margin: 24px auto 0;
+        margin: 20px auto 0;
+        padding: 0 4px;
         display: flex;
         justify-content: space-between;
         gap: 12px;
-        padding: 0 4px;
+        font-family: Arial, Helvetica, sans-serif;
       }
 
       .toolbar a,
       .toolbar button {
-        padding: 10px 18px;
-        border: 1px solid var(--line);
-        border-radius: 30px;
+        padding: 9px 18px;
+        border: 1px solid #c9ccd4;
+        border-radius: 6px;
         background: #fff;
-        color: var(--ink);
-        font: 500 14px "Inter", Arial, sans-serif;
+        color: #111;
+        font: 600 13px Arial, Helvetica, sans-serif;
         text-decoration: none;
         cursor: pointer;
       }
 
       .toolbar button {
-        border-color: var(--accent);
-        background: var(--accent);
+        border-color: #1f3a8a;
+        background: #1f3a8a;
         color: #fff;
-      }
-
-      header {
-        padding-bottom: 12px;
-        border-bottom: 2px solid var(--ink);
       }
 
       h1 {
         margin: 0;
-        font-size: 22pt;
-        letter-spacing: -0.02em;
+        font-size: 21pt;
+        letter-spacing: 0.5px;
       }
 
-      .headline {
-        margin: 2px 0 8px;
-        color: var(--accent);
-        font-weight: 600;
+      .title {
+        margin: 2px 0 6px;
+        font-size: 11.5pt;
+        font-weight: bold;
+        color: #1f3a8a;
       }
 
       .contact {
         margin: 0;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2px 16px;
-        color: var(--muted);
-        font-size: 9pt;
-        list-style: none;
+        font-size: 9.8pt;
       }
 
       .contact a {
@@ -102,13 +91,19 @@
       }
 
       h2 {
-        margin: 14px 0 6px;
-        padding-bottom: 3px;
-        border-bottom: 1px solid var(--line);
-        color: var(--accent);
-        font-size: 10pt;
-        letter-spacing: 0.08em;
+        margin: 11px 0 4px;
+        break-after: avoid;
+        padding-bottom: 2px;
+        border-bottom: 1.2px solid #111;
+        font-size: 11pt;
+        letter-spacing: 0.6px;
         text-transform: uppercase;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 10pt;
+        break-after: avoid;
       }
 
       p {
@@ -117,50 +112,25 @@
 
       ul {
         margin: 3px 0 0;
-        padding-left: 16px;
+        padding-left: 17px;
       }
 
-      li + li {
-        margin-top: 2px;
-      }
-
-      .role {
-        margin-top: 8px;
+      li {
+        margin-top: 1px;
         break-inside: avoid;
       }
 
-      .role-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
+      .entry {
+        margin-top: 7px;
       }
 
-      .role-head strong {
-        font-weight: 600;
+      .entry-meta {
+        color: #333;
+        break-after: avoid;
       }
 
-      .role-head span {
-        color: var(--muted);
-        white-space: nowrap;
-      }
-
-      .org {
-        color: var(--muted);
-      }
-
-      .skills {
-        margin: 0;
-        display: grid;
-        grid-template-columns: 34mm 1fr;
-        gap: 3px 10px;
-      }
-
-      .skills dt {
-        font-weight: 600;
-      }
-
-      .skills dd {
-        margin: 0;
+      .skills p {
+        margin-top: 2px;
       }
 
       @media print {
@@ -182,125 +152,143 @@
   </head>
   <body>
     <div class="toolbar">
-      <a href="../">← Back to portfolio</a>
+      <a href="../">Back to portfolio</a>
       <button type="button" onclick="window.print()">Save as PDF / Print</button>
     </div>
 
     <main class="page">
-      <header>
-        <h1>Siphiwe Masinga</h1>
-        <p class="headline">BICT Student · Cybersecurity · Web Development · Data Analytics</p>
-        <ul class="contact">
-          <li>Mbombela (Nelspruit), Mpumalanga, South Africa</li>
-          <li><a href="tel:+27649904000">+27 64 990 4000</a></li>
-          <li><a href="mailto:masingasiphiwe95@gmail.com">masingasiphiwe95@gmail.com</a></li>
-          <li><a href="https://siphiwemasinga.github.io/">siphiwemasinga.github.io</a></li>
-          <li><a href="https://www.linkedin.com/in/siphiwe-masinga-1824b4230">linkedin.com/in/siphiwe-masinga-1824b4230</a></li>
-          <li><a href="https://github.com/SiphiweMasinga">github.com/SiphiweMasinga</a></li>
-        </ul>
-      </header>
-
-      <h2>Professional summary</h2>
-      <p>
-        Final-year Bachelor of Information and Communication Technology (BICT) student at the
-        University of Mpumalanga with practical exposure to cybersecurity, web development and data
-        analytics gained through an internship, job shadowing and a national cybersecurity
-        competition. Hands-on experience in penetration testing, cryptography, digital forensics, web
-        exploitation, reverse engineering and Android application security. Founder of ZOEBLOOM Pty
-        Ltd, for which I designed and built a live web platform. Microsoft-certified through NEMISA,
-        a university tutor and Enactus executive, motivated to build secure, user-focused technology.
+      <h1>SIPHIWE MASINGA</h1>
+      <p class="title">Cybersecurity &amp; Web Developer | Final-Year BICT Student</p>
+      <p class="contact">
+        Mbombela (Nelspruit), Mpumalanga, South Africa | +27 64 990 4000 |
+        <a href="mailto:masingasiphiwe95@gmail.com">masingasiphiwe95@gmail.com</a>
+      </p>
+      <p class="contact">
+        LinkedIn: <a href="https://www.linkedin.com/in/siphiwe-masinga-1824b4230">linkedin.com/in/siphiwe-masinga-1824b4230</a> |
+        GitHub: <a href="https://github.com/SiphiweMasinga">github.com/SiphiweMasinga</a> |
+        Portfolio: <a href="https://siphiwemasinga.github.io/">siphiwemasinga.github.io</a>
       </p>
 
-      <h2>Skills</h2>
-      <dl class="skills">
-        <dt>Cybersecurity</dt>
-        <dd>Penetration testing fundamentals, vulnerability analysis, cryptography, digital forensics, web exploitation, reverse engineering, SQL injection, SSH exploitation, Android application security</dd>
-        <dt>Programming</dt>
-        <dd>Python, Java, JavaScript, TypeScript, C#, C++, Kotlin, SQL</dd>
-        <dt>Frameworks</dt>
-        <dd>Django, Jakarta EE, React, Android</dd>
-        <dt>Data &amp; analytics</dt>
-        <dd>Pandas, Power BI, Microsoft Excel, machine learning (regression, k-NN, k-Means)</dd>
-        <dt>Databases</dt>
-        <dd>PostgreSQL, MySQL</dd>
-        <dt>Networking</dt>
-        <dd>VLANs, OSPF, Cisco three-tier network design, Cisco Packet Tracer</dd>
-        <dt>Platforms &amp; tools</dt>
-        <dd>Firebase, Supabase, Git, GitHub</dd>
-        <dt>Professional</dt>
-        <dd>Teamwork, problem-solving, troubleshooting, tutoring and peer mentoring, public relations and communication</dd>
-      </dl>
+      <h2>Professional Summary</h2>
+      <p>
+        Final-year Bachelor of Information and Communication Technology (BICT) student at the
+        University of Mpumalanga, graduating in November 2026, with hands-on experience in
+        cybersecurity and full-stack web development. Completed a cybersecurity internship
+        covering penetration testing, cryptography, digital forensics, web exploitation and
+        reverse engineering, and competed in the national SANReN Cyber Security Challenge.
+        Founder of ZOEBLOOM Pty Ltd, for which I designed, built and launched a live web platform
+        with online bookings, a cloud database and automated email and WhatsApp notifications.
+        Holder of 23 professional certifications, including Microsoft Cybersecurity Architect
+        Expert and Azure Data Scientist Associate training through NEMISA. Seeking a graduate role
+        or internship in cybersecurity, software or web development.
+      </p>
 
-      <h2>Experience</h2>
-      <div class="role">
-        <div class="role-head"><strong>Founder &amp; Web Developer</strong></div>
-        <p class="org">ZOEBLOOM Pty Ltd</p>
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <p><strong>Cybersecurity:</strong> Penetration Testing, Vulnerability Analysis, Cryptography, Digital Forensics, Web Exploitation, Reverse Engineering, SQL Injection, SSH Exploitation, Android Application Security</p>
+        <p><strong>Programming Languages:</strong> Python, Java, JavaScript, TypeScript, C#, C++, Kotlin, SQL</p>
+        <p><strong>Web &amp; Frameworks:</strong> HTML, CSS, React, Django, Jakarta EE, Android</p>
+        <p><strong>Data &amp; Analytics:</strong> Pandas, Power BI, Microsoft Excel, Machine Learning (Regression, k-NN, k-Means)</p>
+        <p><strong>Databases &amp; Cloud:</strong> PostgreSQL, MySQL, Supabase, Firebase</p>
+        <p><strong>Networking:</strong> VLANs, OSPF, Cisco Three-Tier Network Design, Cisco Packet Tracer</p>
+        <p><strong>Tools:</strong> Git, GitHub</p>
+        <p><strong>Professional Skills:</strong> Problem-Solving, Troubleshooting, Teamwork, Communication, Tutoring and Peer Mentoring, Public Relations</p>
+      </div>
+
+      <h2>Professional Experience</h2>
+
+      <div class="entry">
+        <h3>Founder &amp; Web Developer</h3>
+        <p class="entry-meta">ZOEBLOOM Pty Ltd</p>
         <ul>
           <li>Founded a business offering beauty services, web development and digital skills training for high school learners.</li>
-          <li>Designed and built the company website (HTML, CSS, JavaScript, Supabase), including appointment bookings with automated email and WhatsApp confirmations and an AI chat assistant.</li>
+          <li>Designed, built and launched the company website using HTML, CSS and JavaScript, hosted on GitHub Pages.</li>
+          <li>Developed an online appointment booking system on Supabase (PostgreSQL, Edge Functions) with automated email and WhatsApp confirmations and an owner approval workflow.</li>
+          <li>Integrated an AI chat assistant (Google Gemini) and applied security practices including rate limiting, input validation and server-side secret management.</li>
         </ul>
       </div>
-      <div class="role">
-        <div class="role-head"><strong>Cybersecurity Intern</strong></div>
-        <p class="org">MWR CyberSec</p>
+
+      <div class="entry">
+        <h3>Cybersecurity Intern</h3>
+        <p class="entry-meta">MWR CyberSec</p>
         <ul>
-          <li>Performed hands-on penetration testing exercises to identify potential security weaknesses in systems and applications.</li>
+          <li>Performed hands-on penetration testing exercises to identify security weaknesses in systems and applications.</li>
           <li>Applied cryptography and digital forensics techniques to analyse data and understand how attacks are investigated.</li>
           <li>Completed web exploitation and reverse-engineering exercises to analyse software behaviour and understand how vulnerabilities are discovered and mitigated.</li>
         </ul>
       </div>
-      <div class="role">
-        <div class="role-head"><strong>Job Shadow – Cybersecurity, Web Development &amp; Data Analytics</strong></div>
-        <p class="org">Mgwena’s Tech Company</p>
+
+      <div class="entry">
+        <h3>Job Shadow - Cybersecurity, Web Development and Data Analytics</h3>
+        <p class="entry-meta">Mgwena's Tech Company</p>
         <ul>
           <li>Observed and supported software development workflows and the end-to-end process of building technology solutions.</li>
-          <li>Focused on cybersecurity and web development practices while learning how data analytics informs business analysis and decision-making.</li>
-          <li>Developed practical understanding of technical teamwork, troubleshooting and real-world IT service delivery.</li>
+          <li>Focused on cybersecurity and web development practices and learned how data analytics informs business analysis and decision-making.</li>
+          <li>Developed a practical understanding of technical teamwork, troubleshooting and real-world IT service delivery.</li>
         </ul>
       </div>
-      <div class="role">
-        <div class="role-head"><strong>Cybersecurity Challenge Participant</strong><span>2026</span></div>
-        <p class="org">SANReN Cyber Security Challenge (CSC)</p>
+
+      <div class="entry">
+        <h3>Cybersecurity Challenge Participant</h3>
+        <p class="entry-meta">SANReN Cyber Security Challenge (CSC) | 2026</p>
         <ul>
-          <li>Competed in a national Capture-the-Flag (CTF) qualification round, solving challenge-based problems in vulnerability analysis and exploitation.</li>
+          <li>Competed in a national Capture-the-Flag (CTF) qualification round, solving challenges in vulnerability analysis and exploitation.</li>
           <li>Analysed an Android application for security flaws, including hardcoded secrets, insecure manifest configuration, exported-activity exposure and cleartext network traffic.</li>
           <li>Solved challenges covering path traversal, code injection, SSH exploitation, Shellshock, web enumeration and digital forensics.</li>
         </ul>
       </div>
 
-      <h2>Education</h2>
-      <div class="role">
-        <div class="role-head"><strong>Bachelor of Information and Communication Technology (BICT)</strong><span>Feb 2024 – Nov 2026 (expected)</span></div>
-        <p class="org">University of Mpumalanga</p>
-        <p>
-          Focus areas: Cybersecurity, Artificial Intelligence &amp; Machine Learning, Communication
-          Networking, Software Engineering. Research project: “Technological Advancements within
-          the Current Mechatronics Industry.”
-        </p>
+      <h2>Projects</h2>
+
+      <div class="entry">
+        <h3>ZOEBLOOM Business Website and Booking Platform</h3>
+        <p class="entry-meta">HTML, CSS, JavaScript, Supabase, PostgreSQL, WhatsApp Cloud API, Google Gemini | siphiwemasinga.github.io/everbloom-website</p>
+        <ul>
+          <li>Responsive business website with a services slideshow, enquiry forms, AI chat assistant, and appointment bookings confirmed by the owner, with clients notified by email and WhatsApp.</li>
+        </ul>
       </div>
-      <div class="role">
-        <div class="role-head"><strong>National Senior Certificate (NSC)</strong><span>Dec 2022</span></div>
-        <p class="org">Magigwana Secondary School</p>
+
+      <div class="entry">
+        <h3>Interactive 3D Developer Portfolio</h3>
+        <p class="entry-meta">HTML, CSS, JavaScript, Three.js | siphiwemasinga.github.io</p>
+        <ul>
+          <li>Responsive portfolio with interactive 3D graphics, light and dark themes, and search-engine and social-sharing optimisation.</li>
+        </ul>
+      </div>
+
+      <h2>Education</h2>
+
+      <div class="entry">
+        <h3>Bachelor of Information and Communication Technology (BICT)</h3>
+        <p class="entry-meta">University of Mpumalanga | Feb 2024 - Nov 2026 (Expected)</p>
+        <p>Focus areas: Cybersecurity, Artificial Intelligence and Machine Learning, Communication Networking, Software Engineering.</p>
+      </div>
+
+      <div class="entry">
+        <h3>National Senior Certificate (NSC)</h3>
+        <p class="entry-meta">Magigwana Secondary School | Dec 2022</p>
       </div>
 
       <h2>Certifications</h2>
       <ul>
-        <li><strong>Cybersecurity Architect Expert (Microsoft)</strong> – NEMISA</li>
-        <li><strong>Azure Data Scientist Associate (Microsoft)</strong> – NEMISA</li>
-        <li><strong>Stack Developer</strong> – FNB</li>
-        <li><strong>Digital Skills Certifications (20×)</strong> – MTN</li>
+        <li>Microsoft Certified: Cybersecurity Architect Expert (Formal Exam) - NEMISA | Feb 2026</li>
+        <li>Microsoft Certified: Azure Data Scientist Associate - NEMISA | Mar 2026</li>
+        <li>Stack Developer - FNB</li>
+        <li>Digital Skills Certifications (20) - MTN</li>
       </ul>
 
-      <h2>Leadership &amp; achievements</h2>
+      <h2>Leadership and Achievements</h2>
       <ul>
-        <li><strong>Student Tutor</strong> – University of Mpumalanga – 2025–2026: supported fellow students in understanding course content and building confidence in their studies.</li>
-        <li><strong>PR &amp; Marketing Executive</strong> – Enactus UMP – 2025–2026: promoted the society’s projects and activities to students and the wider community.</li>
+        <li>Student Tutor - University of Mpumalanga | 2025 - 2026: supported fellow students in understanding course content and building confidence in their studies.</li>
+        <li>PR and Marketing Executive - Enactus UMP | 2025 - 2026: promoted the society's projects and activities to students and the wider community.</li>
         <li>Competed in the SANReN Cyber Security Challenge 2026 qualification round, a national cybersecurity competition for South African university students.</li>
         <li>Earned 23 professional certifications across cybersecurity, cloud data science, software development and digital skills.</li>
       </ul>
 
       <h2>References</h2>
-      <p>Available on request.</p>
+      <div class="references">
+        <p>Available on request.</p>
+      </div>
     </main>
   </body>
 </html>
