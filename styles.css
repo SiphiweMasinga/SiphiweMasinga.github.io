@@ -945,6 +945,51 @@ h1 {
   display: none;
 }
 
+.orbit-legend {
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  color: var(--muted);
+  font-size: 12px;
+  list-style: none;
+  pointer-events: none;
+}
+
+.orbit-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.legend-dot-0 {
+  background: var(--cyan);
+  color: var(--cyan);
+}
+
+.legend-dot-1 {
+  background: var(--violet);
+  color: var(--violet);
+}
+
+.legend-dot-2 {
+  background: var(--pink);
+  color: var(--pink);
+}
+
 .skill-tag {
   position: absolute;
   top: 50%;
