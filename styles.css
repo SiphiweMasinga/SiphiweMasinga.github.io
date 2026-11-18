@@ -1048,6 +1048,16 @@ h1 {
   color: var(--cyan);
 }
 
+.cert-verified .cert-link {
+  color: var(--cyan);
+}
+
+.cert-verified .cert-link::before {
+  margin-right: 6px;
+  content: "✓";
+  color: #34d399;
+}
+
 .edu-grid {
   margin-top: 24px;
   display: grid;

@@ -3,3 +3,4 @@ Thumbs.db
 desktop.ini
 *.pdf
 !cv/Siphiwe_Masinga_CV.pdf
+!certificates/*.pdf
