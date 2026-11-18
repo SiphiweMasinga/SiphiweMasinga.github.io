@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Siphiwe Masinga — final-year BICT student, web developer, cybersecurity enthusiast and founder of ZOEBLOOM Pty Ltd, based in Mbombela, South Africa."
+    />
+    <meta name="theme-color" content="#07080d" />
+    <title>Siphiwe Masinga — Developer &amp; Founder</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="scene.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#home" aria-label="Siphiwe Masinga, home">
+          <span class="brand-mark" aria-hidden="true">SM</span>
+          <span class="brand-name">siphiwe<span>_masinga</span></span>
+        </a>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#certifications">Certifications</a>
+          <a class="nav-cta" href="#contact">Let’s talk</a>
+        </nav>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open navigation"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero with the Three.js scene behind it -->
+      <section class="hero" id="home">
+        <canvas class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <p class="mono hero-hello"><span class="prompt">&gt;</span> hello, world — I’m</p>
+          <h1>Siphiwe<br /><span class="gradient-text">Masinga.</span></h1>
+          <p class="hero-role mono">
+            <span class="role-text" data-roles="Web developer|Cybersecurity enthusiast|Founder of ZOEBLOOM|Final-year BICT student">Web developer</span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero-intro">
+            I build secure, user-focused web experiences — from my own business website to
+            hands-on security work in penetration testing, forensics and Android app security.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View my work</a>
+            <a class="button button-ghost" href="#contact">Get in touch</a>
+          </div>
+          <dl class="hero-stats">
+            <div><dt>23</dt><dd>Professional certifications</dd></div>
+            <div><dt>BICT</dt><dd>Final year, University of Mpumalanga</dd></div>
+            <div><dt>CTF</dt><dd>SANReN Cyber Security Challenge 2026</dd></div>
+          </dl>
+        </div>
+        <a class="scroll-hint mono" href="#about" aria-label="Scroll to About">scroll <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <!-- About -->
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="photo-card" data-tilt>
+            <div class="photo-frame">
+              <img src="images/siphiwe.jpg" alt="Portrait of Siphiwe Masinga" width="600" height="600" />
+            </div>
+            <div class="photo-badge mono">
+              <span class="status-dot" aria-hidden="true"></span> Open to opportunities
+            </div>
+          </div>
+
+          <div class="about-copy">
+            <p class="section-label mono">01 // about</p>
+            <h2>Curious, disciplined, and <span class="gradient-text">building.</span></h2>
+            <p>
+              I’m a final-year Bachelor of Information and Communication Technology student at the
+              University of Mpumalanga, with practical exposure to cybersecurity, web development
+              and data analytics through an internship, job shadowing and a national
+              cybersecurity competition.
+            </p>
+            <p>
+              I’m also the founder of <strong>ZOEBLOOM Pty Ltd</strong>, a beauty and technology
+              business — and I designed and built its website, including online bookings with
+              email and WhatsApp confirmations.
+            </p>
+            <ul class="fact-list">
+              <li><span class="mono">location</span> Mbombela, Mpumalanga, South Africa</li>
+              <li><span class="mono">studying</span> BICT · University of Mpumalanga</li>
+              <li><span class="mono">founder</span> ZOEBLOOM Pty Ltd</li>
+              <li><span class="mono">community</span> Student tutor · Enactus UMP executive</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="section" id="experience">
+        <div class="container">
+          <p class="section-label mono">02 // experience</p>
+          <h2>Where I’ve <span class="gradient-text">learned by doing.</span></h2>
+
+          <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card" data-tilt>
+                <p class="timeline-meta mono">Founder · ZOEBLOOM Pty Ltd</p>
+                <h3>Founder &amp; Web Developer</h3>
+                <ul>
+                  <li>Founded a business offering beauty services, web development and digital skills training for high school learners.</li>
+                  <li>Designed and built the company website, with a booking system that confirms appointments by email and WhatsApp.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card" data-tilt>
+                <p class="timeline-meta mono">Internship · MWR CyberSec</p>
+                <h3>Cybersecurity Intern</h3>
+                <ul>
+                  <li>Performed hands-on penetration testing exercises to identify security weaknesses in systems and applications.</li>
+                  <li>Applied cryptography and digital forensics techniques to analyse data and understand how attacks are investigated.</li>
+                  <li>Completed web exploitation and reverse-engineering exercises to understand how vulnerabilities are discovered and mitigated.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card" data-tilt>
+                <p class="timeline-meta mono">2026 · SANReN Cyber Security Challenge</p>
+                <h3>Cybersecurity Challenge Participant</h3>
+                <ul>
+                  <li>Competed in a national Capture-the-Flag qualification round in vulnerability analysis and exploitation.</li>
+                  <li>Analysed an Android application for hardcoded secrets, insecure manifest configuration, exported-activity exposure and cleartext traffic.</li>
+                  <li>Solved challenges covering path traversal, code injection, SSH exploitation, Shellshock, web enumeration and digital forensics.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card" data-tilt>
+                <p class="timeline-meta mono">Job shadow · Mgwena’s Tech Company</p>
+                <h3>Cybersecurity, Web Development &amp; Data Analytics</h3>
+                <ul>
+                  <li>Observed and supported software development workflows and the end-to-end process of building technology solutions.</li>
+                  <li>Learned how data analytics informs business analysis and decision-making.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card" data-tilt>
+                <p class="timeline-meta mono">2025 – 2026 · University of Mpumalanga &amp; Enactus UMP</p>
+                <h3>Student Tutor · PR &amp; Marketing Executive</h3>
+                <ul>
+                  <li>Tutored fellow students, helping them understand course content and build confidence in their studies.</li>
+                  <li>Promoted Enactus UMP’s projects and activities to students and the wider community.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section" id="projects">
+        <div class="container">
+          <p class="section-label mono">03 // projects</p>
+          <h2>Selected <span class="gradient-text">work.</span></h2>
+
+          <div class="project-grid">
+            <article class="project-card project-featured" data-tilt>
+              <a
+                class="project-shot"
+                href="https://siphiwemasinga.github.io/everbloom-website/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="images/zoebloom.png" alt="Screenshot of the ZOEBLOOM website homepage" loading="lazy" width="1440" height="900" />
+              </a>
+              <div class="project-body">
+                <p class="project-kind mono">Featured · Business website</p>
+                <h3>ZOEBLOOM — Beauty &amp; Technology</h3>
+                <p>
+                  The full website for my business: an elegant, responsive design with a
+                  services slideshow, enquiry forms, an AI chat assistant, and an appointment
+                  system where I confirm bookings and clients are notified by email and WhatsApp.
+                </p>
+                <ul class="tag-list">
+                  <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Supabase</li>
+                  <li>PostgreSQL</li><li>Edge Functions</li><li>WhatsApp API</li><li>Gemini AI</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://siphiwemasinga.github.io/everbloom-website/" target="_blank" rel="noopener noreferrer">Live site ↗</a>
+                  <a href="https://github.com/SiphiweMasinga/everbloom-website" target="_blank" rel="noopener noreferrer">Source code ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" data-tilt>
+              <div class="project-art art-security" aria-hidden="true">
+                <span class="mono">$ apktool d target.apk</span>
+                <span class="mono">[!] hardcoded secret found</span>
+                <span class="mono">[!] exported activity exposed</span>
+                <span class="mono">[!] cleartext traffic allowed</span>
+              </div>
+              <div class="project-body">
+                <p class="project-kind mono">Security · SANReN CSC 2026</p>
+                <h3>Android app security analysis</h3>
+                <p>
+                  Reviewed an Android application for security flaws during the national CTF
+                  qualification round — from secrets in the code to insecure manifest settings.
+                </p>
+                <ul class="tag-list"><li>Android</li><li>Reverse engineering</li><li>CTF</li></ul>
+              </div>
+            </article>
+
+            <article class="project-card" data-tilt>
+              <div class="project-art art-research" aria-hidden="true">
+                <span class="gear gear-one"></span>
+                <span class="gear gear-two"></span>
+              </div>
+              <div class="project-body">
+                <p class="project-kind mono">Research · BICT</p>
+                <h3>Technological advancements in mechatronics</h3>
+                <p>
+                  Academic research project on technological advancements within the current
+                  mechatronics industry.
+                </p>
+                <ul class="tag-list"><li>Research</li><li>Mechatronics</li></ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="section" id="skills">
+        <div class="container skills-grid">
+          <div>
+            <p class="section-label mono">04 // skills</p>
+            <h2>My tech <span class="gradient-text">universe.</span></h2>
+            <p class="section-intro">Drag your mouse over the sphere to spin it.</p>
+
+            <div class="skill-groups">
+              <div><h3 class="mono">cybersecurity</h3><p>Penetration testing, vulnerability analysis, cryptography, digital forensics, web exploitation, reverse engineering, SQL injection, Android app security</p></div>
+              <div><h3 class="mono">programming</h3><p>Python, Java, JavaScript, SQL</p></div>
+              <div><h3 class="mono">frameworks</h3><p>Django, Jakarta EE, React, Android</p></div>
+              <div><h3 class="mono">data</h3><p>Pandas, Power BI, Excel, machine learning (regression, k-NN, k-Means)</p></div>
+              <div><h3 class="mono">databases &amp; cloud</h3><p>PostgreSQL, MySQL, Supabase, Firebase</p></div>
+              <div><h3 class="mono">networking</h3><p>VLANs, OSPF, Cisco three-tier design, Packet Tracer</p></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-sphere"
+            aria-hidden="true"
+            data-skills="Python|Java|JavaScript|SQL|React|Django|Jakarta EE|Android|HTML|CSS|Supabase|Firebase|PostgreSQL|MySQL|Git|GitHub|Pandas|Power BI|Excel|Machine Learning|Pen Testing|Cryptography|Forensics|Reverse Eng.|Web Exploitation|VLANs|OSPF|Packet Tracer"
+          ></div>
+        </div>
+      </section>
+
+      <!-- Certifications & education -->
+      <section class="section" id="certifications">
+        <div class="container">
+          <p class="section-label mono">05 // certifications &amp; education</p>
+          <h2><span class="gradient-text">23</span> certifications and counting.</h2>
+
+          <div class="cert-grid">
+            <article class="cert-card" data-tilt>
+              <span class="cert-issuer mono">Microsoft · NEMISA</span>
+              <h3>Cybersecurity Architect Expert</h3>
+            </article>
+            <article class="cert-card" data-tilt>
+              <span class="cert-issuer mono">Microsoft · NEMISA</span>
+              <h3>Azure Data Scientist Associate</h3>
+            </article>
+            <article class="cert-card" data-tilt>
+              <span class="cert-issuer mono">FNB</span>
+              <h3>Stack Developer</h3>
+            </article>
+            <article class="cert-card" data-tilt>
+              <span class="cert-issuer mono">MTN</span>
+              <h3>Digital Skills Certifications <span class="cert-count">×20</span></h3>
+            </article>
+          </div>
+
+          <div class="edu-grid">
+            <article class="edu-card">
+              <p class="mono edu-date">Feb 2024 — Nov 2026 (expected)</p>
+              <h3>Bachelor of Information and Communication Technology</h3>
+              <p class="edu-school">University of Mpumalanga</p>
+              <p>
+                Focus areas: Cybersecurity, AI &amp; Machine Learning, Communication Networking and
+                Software Engineering.
+              </p>
+            </article>
+            <article class="edu-card">
+              <p class="mono edu-date">Dec 2022</p>
+              <h3>National Senior Certificate</h3>
+              <p class="edu-school">Magigwana Secondary School</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section contact" id="contact">
+        <div class="container contact-inner">
+          <p class="section-label mono">06 // contact</p>
+          <h2>Let’s build something <span class="gradient-text">secure &amp; beautiful.</span></h2>
+          <p class="section-intro">
+            Open to graduate roles, internships, freelance web projects and collaborations.
+          </p>
+          <div class="contact-grid">
+            <a class="contact-card" href="mailto:masingasiphiwe95@gmail.com" data-tilt>
+              <span class="mono">email</span>
+              <strong>masingasiphiwe95@gmail.com</strong>
+            </a>
+            <a class="contact-card" href="tel:+27649904000" data-tilt>
+              <span class="mono">phone</span>
+              <strong>+27 64 990 4000</strong>
+            </a>
+            <a class="contact-card" href="https://wa.me/27649904000" target="_blank" rel="noopener noreferrer" data-tilt>
+              <span class="mono">whatsapp</span>
+              <strong>Chat with me ↗</strong>
+            </a>
+            <a class="contact-card" href="https://www.linkedin.com/in/siphiwe-masinga-1824b4230" target="_blank" rel="noopener noreferrer" data-tilt>
+              <span class="mono">linkedin</span>
+              <strong>Siphiwe Masinga ↗</strong>
+            </a>
+            <a class="contact-card" href="https://github.com/SiphiweMasinga" target="_blank" rel="noopener noreferrer" data-tilt>
+              <span class="mono">github</span>
+              <strong>@SiphiweMasinga ↗</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span class="mono">© <span id="year"></span> Siphiwe Masinga</span>
+        <span class="mono">Built with HTML, CSS, JavaScript &amp; Three.js</span>
+        <a class="mono" href="#home">back to top ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>
